@@ -1,0 +1,43 @@
+name: "Ruby on Rails CI"
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7.30
+        ports:
+          - "3306:3306"
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    env:
+      RAILS_ENV: test
+      DB_HOST: 127.0.0.1
+      DB_PASSWORD: ""
+      DB_PORT: 3306
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
+        with:
+          bundler-cache: true
+          ruby-version: 3.0.2
+      - name: Set up database schema
+        run: |
+          bundle exec rails db:create db:schema:load
+      - name: Run tests
+        run: bundle exec rails test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
+        with:
+          bundler-cache: true
+          ruby-version: 3.0.2
+      - name: Lint Ruby files
+        run: bundle exec rubocop --parallel
