@@ -24,6 +24,7 @@ services:
       RAILS_ENV: development
       DB_HOST: db
       DB_PASSWORD: rootpassword
+      DB_USERNAME: root
     depends_on:
       - db
     ports:
