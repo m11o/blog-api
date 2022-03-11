@@ -26,7 +26,7 @@ jobs:
           ruby-version: 3.0.2
       - name: Set up database schema
         run: |
-          sudo /etc/init.d/mysql start
+          /usr/bin/docker ps -a
           bundle exec rails db:create db:schema:load
       - name: Run tests
         run: bundle exec rails test
