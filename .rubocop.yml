@@ -8,3 +8,23 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://docs.rubocop.org/rubocop/configuration
+
+AllCops:
+  TargetRubyVersion: 3.0
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - vendor/**/*
+    - test/**/*
+    - config/**/*
+    - db/**/*
+    - Gemfile
+    - Rakefile
+    - storage/**/*
+    - public/**/*
+    - tmp/**/*
+    - log/**/*
+  NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
