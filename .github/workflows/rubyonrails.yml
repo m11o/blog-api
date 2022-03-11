@@ -10,7 +10,6 @@ jobs:
           - "3306:3306"
         env:
           MYSQL_USER: root
-          MYSQL_DATABASE: blog_api_test
           MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: rootpassword
     env:
@@ -26,9 +25,9 @@ jobs:
           bundler-cache: true
           ruby-version: 3.0.2
       - name: Set up database schema
-        run: bin/rails db:schema:load
+        run: bundle exec rails db:create db:schema:load
       - name: Run tests
-        run: bin/rake
+        run: bundle exec rails test
 
   lint:
     runs-on: ubuntu-latest
