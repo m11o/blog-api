@@ -19,13 +19,11 @@ jobs:
           --health-retries 5
     env:
       RAILS_ENV: test
-      DB_HOST: 127.0.0.1
+      DB_HOST: 127.0.0.1:3306
       DB_PASSWORD: rootpassword
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Show database for root user
-        run: mysql --protocol=tcp -h 127.0.0.1 -P 3306 -u root -proot_password -e "SHOW DATABASES"
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e
         with:
