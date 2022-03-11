@@ -15,7 +15,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: rootpassword
     env:
       RAILS_ENV: test
-      DB_HOST: localhost
+      DB_HOST: mysql
       DB_PASSWORD: rootpassword
     steps:
       - name: Checkout code
