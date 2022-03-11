@@ -24,8 +24,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Show docker ps
-        run: docker ps -a
       - name: Show database for root user
         run: mysql --protocol=tcp -h 127.0.0.1 -P 3306 -u root -proot_password -e "SHOW DATABASES"
       - name: Install Ruby and gems
