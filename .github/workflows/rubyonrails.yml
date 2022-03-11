@@ -25,7 +25,9 @@ jobs:
           bundler-cache: true
           ruby-version: 3.0.2
       - name: Set up database schema
-        run: bundle exec rails db:create db:schema:load
+        run: |
+          sudo /etc/init.d/mysql start
+          bundle exec rails db:create db:schema:load
       - name: Run tests
         run: bundle exec rails test
 
