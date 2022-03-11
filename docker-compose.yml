@@ -22,6 +22,8 @@ services:
       - tmp-data:/project/tmp
     environment:
       RAILS_ENV: development
+      DB_HOST: db
+      DB_PASSWORD: rootpassword
     depends_on:
       - db
     ports:
