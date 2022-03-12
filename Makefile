@@ -20,7 +20,7 @@ install:
 
 .PHONY: db-reset
 db-reset:
-	docker-compose run --rm web bundle exec rails db:create db:migrate
+	docker-compose run --rm web bundle exec rails db:create rp:apply
 
 .PHONY: init
 init:
