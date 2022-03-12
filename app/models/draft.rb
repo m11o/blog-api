@@ -14,9 +14,11 @@
 #  index_drafts_on_user_id          (user_id)
 #
 class Draft < ApplicationRecord
+  UID_REGEXP = '\A[A-Z0-9]{10}\z'
+
   belongs_to :user
 
-  validates :uid, presence: true, uniqueness: { scope: :user_id }, format: { with: %r{\A[A-Z0-9]{10}\z} }
+  validates :uid, presence: true, uniqueness: { scope: :user_id }, format: { with: Regexp.compile(UID_REGEXP) }
 
   before_validation :generate_uid, on: :create
 
