@@ -1,5 +1,5 @@
 class DraftContentsController < ApplicationController
-  before_action :set_draft_content, only: %i[ show update destroy ]
+  before_action :set_draft_content, only: %i[show update destroy]
 
   # GET /draft_contents
   def index
@@ -39,13 +39,14 @@ class DraftContentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_draft_content
-      @draft_content = DraftContent.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def draft_content_params
-      params.fetch(:draft_content, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_draft_content
+    @draft_content = DraftContent.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def draft_content_params
+    params.fetch(:draft_content, {})
+  end
 end

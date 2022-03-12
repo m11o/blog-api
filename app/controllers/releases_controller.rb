@@ -1,5 +1,5 @@
 class ReleasesController < ApplicationController
-  before_action :set_release, only: %i[ show update destroy ]
+  before_action :set_release, only: %i[show update destroy]
 
   # GET /releases
   def index
@@ -39,13 +39,14 @@ class ReleasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_release
-      @release = Release.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def release_params
-      params.fetch(:release, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_release
+    @release = Release.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def release_params
+    params.fetch(:release, {})
+  end
 end

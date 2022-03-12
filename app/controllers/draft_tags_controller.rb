@@ -1,5 +1,5 @@
 class DraftTagsController < ApplicationController
-  before_action :set_draft_tag, only: %i[ show update destroy ]
+  before_action :set_draft_tag, only: %i[show update destroy]
 
   # GET /draft_tags
   def index
@@ -39,13 +39,14 @@ class DraftTagsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_draft_tag
-      @draft_tag = DraftTag.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def draft_tag_params
-      params.fetch(:draft_tag, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_draft_tag
+    @draft_tag = DraftTag.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def draft_tag_params
+    params.fetch(:draft_tag, {})
+  end
 end
