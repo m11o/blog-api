@@ -24,7 +24,7 @@ class Draft < ApplicationRecord
   before_validation :generate_uid, on: :create
 
   def released?
-    releases.present? && releases.order(created_at: :desc).first.opened?
+    releases.exists? && releases.order(created_at: :desc).first.opened?
   end
 
   private
