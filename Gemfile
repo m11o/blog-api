@@ -50,3 +50,4 @@ group :development do
 end
 
 gem 'ridgepole'
+gem 'sorcery'
