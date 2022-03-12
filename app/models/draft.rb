@@ -16,13 +16,18 @@
 class Draft < ApplicationRecord
   belongs_to :user
 
-  validates :uid, presence: true, uniqueness: {}
+  validates :uid, presence: true, uniqueness: { scope: :user_id }
+
+  before_validation :generate_uid, on: :create
 
   private
 
   def generate_uid
     return if uid.present?
 
+    pre_uid = SecureRandom.base36(10).upcase
+    return generate_uid if user.drafts.exists?(uid: pre_uid)
 
+    self.uid = pre_uid
   end
 end
