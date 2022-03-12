@@ -17,6 +17,7 @@ class Draft < ApplicationRecord
   UID_REGEXP = '\A[A-Z0-9]{10}\z'
 
   belongs_to :user
+  has_many :releases
 
   validates :uid, presence: true, uniqueness: { scope: :user_id }, format: { with: Regexp.compile(UID_REGEXP) }
 
