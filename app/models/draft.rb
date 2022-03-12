@@ -14,7 +14,7 @@
 #  index_drafts_on_user_id          (user_id)
 #
 class Draft < ApplicationRecord
-  UID_REGEXP = '\A[A-Z0-9]{10}\z'
+  UID_REGEXP = '\A[A-Z0-9]{10}\z'.freeze
 
   belongs_to :user
   has_many :releases
