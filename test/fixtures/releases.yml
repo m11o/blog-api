@@ -18,3 +18,13 @@
 one:
   draft: one
   article: one
+
+opened:
+  draft: one
+  article: one
+  state: opened
+
+closed:
+  draft: one
+  article: one
+  state: closed

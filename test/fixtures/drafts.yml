@@ -20,7 +20,12 @@
 #
 one:
   user: one
+  uid: TGK56ADF55
 
 with_uid:
   user: one
   uid: GE12GDD7UY
+
+without_releases:
+  user: one
+  uid: BMAG533SDF

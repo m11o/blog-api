@@ -54,4 +54,23 @@ class DraftTest < ActiveSupport::TestCase
     assert draft.valid?
     assert_equal draft.uid, generated_uid
   end
+
+  test 'releasesをもっていない場合' do
+    draft = drafts(:without_releases)
+    assert_not draft.released?
+  end
+
+  test 'releasesをもっていて、最新のstateがopenedの場合' do
+    draft = drafts(:one)
+    article = articles(:one)
+    draft.releases.create(article: article, state: :opened)
+    assert draft.released?
+  end
+
+  test 'releasesをもっていて、最新のstateがclosedの場合' do
+    draft = drafts(:one)
+    article = articles(:one)
+    draft.releases.create(article: article, state: :closed)
+    assert_not draft.released?
+  end
 end
