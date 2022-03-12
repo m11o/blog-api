@@ -25,7 +25,7 @@ jobs:
           ruby-version: 3.0.2
       - name: Set up database schema
         run: |
-          bundle exec rails db:create rp:apply
+          RAILS_ENV=test bundle exec rails db:create rp:apply
       - name: Run tests
         run: bundle exec rails test
 
