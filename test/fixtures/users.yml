@@ -21,11 +21,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  email: 'hoge@example.com',
-  name: 'test太郎',
+  email: 'hoge@example.com'
+  name: 'test太郎'
   hostname: 'hoge.example.com'
 
 two:
-  email: 'fuga@example.com',
-  name: 'spec花子',
+  email: 'fuga@example.com'
+  name: 'spec花子'
   hostname: 'fuga.example.com'
