@@ -10,8 +10,8 @@
 #
 # Indexes
 #
-#  index_drafts_on_uid      (uid) UNIQUE
-#  index_drafts_on_user_id  (user_id)
+#  index_drafts_on_uid_and_user_id  (uid,user_id) UNIQUE
+#  index_drafts_on_user_id          (user_id)
 #
 require "test_helper"
 

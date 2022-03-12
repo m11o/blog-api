@@ -10,8 +10,19 @@
 #
 # Indexes
 #
-#  index_drafts_on_uid      (uid) UNIQUE
-#  index_drafts_on_user_id  (user_id)
+#  index_drafts_on_uid_and_user_id  (uid,user_id) UNIQUE
+#  index_drafts_on_user_id          (user_id)
 #
 class Draft < ApplicationRecord
+  belongs_to :user
+
+  validates :uid, presence: true, uniqueness: {}
+
+  private
+
+  def generate_uid
+    return if uid.present?
+
+
+  end
 end
