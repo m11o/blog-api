@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  draft_id   :bigint           not null
 #  article_id :bigint           not null
-#  state      :integer          default(0), not null
+#  state      :integer          default("closed"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
