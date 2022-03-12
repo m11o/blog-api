@@ -19,4 +19,9 @@
 #  index_articles_on_user_id          (user_id)
 #
 class Article < ApplicationRecord
+  belongs_to :user
+
+  validates :uid, presence: true, uniqueness: { scope: :user_id }, format: { with: Regexp.compile(Draft::UID_REGEXP) }
+  validates :title, presence: true
+  validates :published_at, presence: true
 end
