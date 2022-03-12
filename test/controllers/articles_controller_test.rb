@@ -1,5 +1,6 @@
 require "test_helper"
 
+=begin
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @article = articles(:one)
@@ -36,3 +37,4 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :no_content
   end
 end
+=end

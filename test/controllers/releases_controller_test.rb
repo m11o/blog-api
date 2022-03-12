@@ -1,5 +1,6 @@
 require "test_helper"
 
+=begin
 class ReleasesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @release = releases(:one)
@@ -36,3 +37,4 @@ class ReleasesControllerTest < ActionDispatch::IntegrationTest
     assert_response :no_content
   end
 end
+=end

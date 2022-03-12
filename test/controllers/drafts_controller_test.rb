@@ -1,5 +1,6 @@
 require "test_helper"
 
+=begin
 class DraftsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @draft = drafts(:one)
@@ -36,3 +37,4 @@ class DraftsControllerTest < ActionDispatch::IntegrationTest
     assert_response :no_content
   end
 end
+=end
