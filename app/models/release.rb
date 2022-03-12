@@ -15,4 +15,11 @@
 #  index_releases_on_draft_id    (draft_id)
 #
 class Release < ApplicationRecord
+  belongs_to :draft
+  belongs_to :article
+
+  enum state: {
+    closed: 0,
+    opened: 1
+  }
 end
