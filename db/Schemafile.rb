@@ -53,3 +53,15 @@ create_table_wrap :draft_tags do |t|
   t.references :draft, null: false
   t.references :tag, null: false
 end
+
+create_table_wrap :users do |t|
+  t.string :email, null: false
+  t.string :crypted_password
+  t.string :salt
+  t.string :name, null: false, default: ''
+  t.string :hostname, null: false, default: ''
+
+  t.index :email, unique: true
+
+  t.timestamps null: false
+end
