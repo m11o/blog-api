@@ -16,7 +16,7 @@
 class Draft < ApplicationRecord
   belongs_to :user
 
-  validates :uid, presence: true, uniqueness: { scope: :user_id }
+  validates :uid, presence: true, uniqueness: { scope: :user_id }, format: { with: %r{\A[A-Z0-9]{10}\z} }
 
   before_validation :generate_uid, on: :create
 
