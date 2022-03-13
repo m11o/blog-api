@@ -10,16 +10,22 @@
 #
 # Indexes
 #
-#  index_drafts_on_uid      (uid) UNIQUE
-#  index_drafts_on_user_id  (user_id)
+#  index_drafts_on_uid_and_user_id  (uid,user_id) UNIQUE
+#  index_drafts_on_user_id          (user_id)
 #
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  user: one
+  uid: TGK56ADF55
+
+with_uid:
+  user: one
+  uid: GE12GDD7UY
+
+without_releases:
+  user: one
+  uid: BMAG533SDF

@@ -17,4 +17,7 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
+
+  has_many :drafts, dependent: :destroy
+  has_many :articles, dependent: :destroy
 end

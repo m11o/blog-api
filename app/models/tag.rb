@@ -13,4 +13,7 @@
 #  index_tags_on_user_id  (user_id)
 #
 class Tag < ApplicationRecord
+  belongs_to :user
+
+  validates :name, presence: true
 end

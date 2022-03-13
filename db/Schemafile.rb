@@ -6,7 +6,7 @@ create_table_wrap :drafts do |t|
   t.string :uid, null: false, default: ''
   t.references :user, null: false
 
-  t.index :uid, unique: true
+  t.index %i[uid user_id], unique: true
 
   t.timestamps null: false
 end
@@ -29,7 +29,7 @@ create_table_wrap :articles do |t|
   t.text :tags
   t.datetime :published_at, null: false
 
-  t.index :uid, unique: true
+  t.index %i[uid user_id], unique: true
 
   t.timestamps null: false
 end

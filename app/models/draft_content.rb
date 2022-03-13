@@ -15,4 +15,7 @@
 #  index_draft_contents_on_draft_id  (draft_id)
 #
 class DraftContent < ApplicationRecord
+  belongs_to :draft
+
+  validates :title, presence: true
 end

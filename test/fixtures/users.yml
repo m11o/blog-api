@@ -20,8 +20,12 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  email: 'hoge@example.com'
+  name: 'test太郎'
+  hostname: 'hoge.example.com'
+
+two:
+  email: 'fuga@example.com'
+  name: 'spec花子'
+  hostname: 'fuga.example.com'

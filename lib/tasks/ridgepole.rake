@@ -3,7 +3,10 @@ namespace :rp do
   desc 'apply ridgepole'
   task :apply, :environment do
     ridgepole('--apply', "--file #{schema}")
-    exec_annotate if Rails.env.development?
+    if Rails.env.development?
+      exec_annotate
+      exec_dump_schema
+    end
   end
 
   desc 'show diff'
@@ -33,6 +36,12 @@ namespace :rp do
     return unless Rails.env.development?
 
     system 'bundle exec annotate'
+  end
+
+  def exec_dump_schema
+    return unless Rails.env.development?
+
+    system 'bundle exec rails db:schema:dump'
   end
 end
 # rubocop:enable Metrics/BlockLength

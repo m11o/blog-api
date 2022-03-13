@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  draft_id   :bigint           not null
 #  article_id :bigint           not null
-#  state      :integer          default(0), not null
+#  state      :integer          default("closed"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -15,12 +15,16 @@
 #  index_releases_on_draft_id    (draft_id)
 #
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  draft: one
+  article: one
+
+opened:
+  draft: one
+  article: one
+  state: opened
+
+closed:
+  draft: one
+  article: one
+  state: closed

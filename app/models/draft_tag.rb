@@ -12,4 +12,6 @@
 #  index_draft_tags_on_tag_id    (tag_id)
 #
 class DraftTag < ApplicationRecord
+  belongs_to :draft
+  belongs_to :tag
 end
