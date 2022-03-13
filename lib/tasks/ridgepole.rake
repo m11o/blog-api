@@ -5,7 +5,7 @@ namespace :rp do
     ridgepole('--apply', "--file #{schema}")
     if Rails.env.development?
       exec_annotate
-
+      exec_dump_schema
     end
   end
 
